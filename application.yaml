@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/anupsharma329/k8s-infra.git
+    repoURL: https://github.com/anupsharma329/k8-infra.git
     targetRevision: HEAD
     path: .  # If the files are in the root of the repo
   destination:
