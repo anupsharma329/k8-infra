@@ -3,6 +3,9 @@ kind: Application
 metadata:
   name: node-app
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: anupsharma329/node
+    argocd-image-updater.argoproj.io/anupsharma329_node.update-strategy: latest
 spec:
   project: default
   source:
@@ -18,3 +21,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=true
