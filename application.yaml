@@ -9,11 +9,13 @@ metadata:
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/write-back-target: directory
 spec:
-  project: default
+  project: default  # ✅ Required field
   source:
-    repoURL: https://github.com/anupsharma329/k8s-infra.git
+    repoURL: https://github.com/anupsharma329/k8-infra.git
     targetRevision: main
-    path: .
+    path: manifests
+    directory:
+      recurse: true
   destination:
     server: https://kubernetes.default.svc
     namespace: default
