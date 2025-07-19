@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-app
-  labels:
-    app: nodejs-app
+  name: node-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: nodejs-app
+      app: node
   template:
     metadata:
       labels:
-        app: nodejs-app
+        app: node
     spec:
       containers:
-      - name: nodejs-container
-        image: anupsharma329/node:ver1
-        ports:
-        - containerPort: 3000
+        - name: node
+          image: anupsharma329/node:ver1-abc123  # This will be updated automatically
+          ports:
+            - containerPort: 3000
