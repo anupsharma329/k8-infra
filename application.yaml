@@ -7,15 +7,17 @@ metadata:
     argocd-image-updater.argoproj.io/image-list: anupsharma329/node
     argocd-image-updater.argoproj.io/anupsharma329_node.update-strategy: latest
     argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/write-back-target: directory
+    argocd-image-updater.argoproj.io/git-branch: main
+    argocd-image-updater.argoproj.io/write-back-target: helm
 spec:
-  project: default  # ✅ Required field
+  project: default
   source:
-    repoURL: https://github.com/anupsharma329/k8-infra.git
+    repoURL: https://github.com/anupsharma329/repoB.git
     targetRevision: main
-    path: manifests
-    directory:
-      recurse: true
+    path: charts/node-app
+    helm:
+      valueFiles:
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: default

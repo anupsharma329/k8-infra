@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: node
-          image: anupsharma329/node:ver1-abc123  # This will be updated automatically
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 3000
